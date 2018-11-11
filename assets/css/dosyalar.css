@@ -1,0 +1,11 @@
+tr td:first-child{
+  width: 100px;
+}
+tbody tr td{
+  margin: auto;
+  vertical-align:middle !important;
+  text-align: center;
+}
+td img{
+  max-width:150px;
+}
