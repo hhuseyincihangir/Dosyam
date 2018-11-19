@@ -1,5 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+$this->load->helper("cookie");
+$cookie=get_cookie("cookieKullanici");
+if ($cookie){
+	$kullanici=json_decode($cookie);
+}
 ?><!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -35,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-md-12">
 								<div class="form-group">
 									<label for="kadi" class="sr-only">Email address</label>
-									<input type="text" id="kadi" name="kadi" class="form-control" placeholder="Kullanıcı Adı" required autofocus>			
+									<input type="text" id="kadi" name="kadi" class="form-control" value="<?=isset($kullanici)? $kullanici->kullanici_adi :""?>" placeholder="Kullanıcı Adı" required autofocus>	
 								</div>	
 							</div>
 						</div>
@@ -43,15 +48,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-md-12">
 								<div class="form-group">
 									<label for="inputPassword" class="sr-only">Şifre</label>
-									<input type="password" id="inputPassword"  name="sifre" class="form-control" placeholder="Şifre" required>
+									<input type="password" id="inputPassword"  name="sifre" class="form-control" value="<?=isset($kullanici)? $kullanici->kullanici_sifre : ""?>"  placeholder="Şifre" required>
 								</div>	
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									&nbsp;<input id="remember" type="checkbox" value="beni_hatirla" disabled />
-									<label for="remember" class="text-danger">Beni Hatırla( *Aktif Değildir. )</label>
+									&nbsp;<input id="remember" name="beniHatirla" type="checkbox"/>
+									<label for="remember" class="text-danger">Beni Hatırla</label>
 								</div>	
 							</div>
 						</div>

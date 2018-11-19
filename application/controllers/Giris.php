@@ -7,6 +7,7 @@ class Giris extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('ModelKullanicilar');
+		$this->load->helper("cookie");
 	}	
 	public function index()
 	{
@@ -40,9 +41,9 @@ class Giris extends CI_Controller
 		}
 		else
 		{
-			$kadi =$this->input->post("kadi");
-			$sifre	= $this->input->post("sifre");
-
+			$kadi = $this->input->post("kadi");
+			$sifre = $this->input->post("sifre");
+			$beniHatirla = $this->input->post("beniHatirla");
 			$neyi=array(
 				"kullanici_adi"=>$kadi,
 				"kullanici_sifre"=>$sifre
@@ -56,6 +57,14 @@ class Giris extends CI_Controller
 					"kullanici_adsoyad"=>$kullanici->kullanici_adsoyad
 				);
 				$this->session->set_userdata("kullanici",$kullanici);
+				if($beniHatirla=="on")
+				{
+					set_cookie("cookieKullanici",json_encode($neyi),60*60*24);// 1 gün cookie süresi
+				}
+				else
+				{
+					delete_cookie("cookieKullanici");
+				}
 				redirect(base_url("Dosyalar"));
 			}
 			else
