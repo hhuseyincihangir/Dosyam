@@ -30,7 +30,8 @@ class Dosyalar extends CI_Controller
         "dosya_ismi"=>$this->upload->data("file_name"),
         "dosya_url" =>base_url("uploads/$dosya_ismi"),
         "dosya_boyut"=>$this->upload->data("file_size"),
-        "dosya_yukleyen"=>$this->kullanici["kullanici_adi"]
+        "dosya_yukleyen"=>$this->kullanici["kullanici_adi"],
+        "dosya_degisiklik_tarihi"=>date("Y-m-d H:i:s")
       );
       if ($this->ModelDosyalar->insert($veri))
       {

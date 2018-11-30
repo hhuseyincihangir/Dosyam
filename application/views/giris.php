@@ -78,7 +78,7 @@ if ($cookie){
 								<div class="col-md-6">
 									<p class="text-center">
 									Copyright © 2018<br>
-									<a href="mailto:hashusfb@gmail.com">hashusfb@gmail.com</a>
+									<a href="mailto:hhuseyincihangir@gmail.com">hhuseyincihangir@gmail.com</a>
 									</p>
 								</div>
 							</div>

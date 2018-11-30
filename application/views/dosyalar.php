@@ -83,6 +83,7 @@
                   <th>Dosya Boyutu</th>
                   <th>Dosya İsmi</th>
                   <th>Yükleyen</th>
+                  <th>Son Düzenlenme Tarihi</th>
                   <th>İşlemler</th>
                 </thead>
                 <tbody>
@@ -94,6 +95,7 @@
                     <td ><?=round($dosya->dosya_boyut/1024,4)?> MB</td>
                     <td ><div><?=$dosya->dosya_ismi?></td>
                     <td ><?=$dosya->dosya_yukleyen?></td>
+                    <td><?=$dosya->dosya_degisiklik_tarihi?></td>
                     <td >
                       <a type="button" class="btn btn-success btn-block" href="<?=base_url("dosyalar/indir/$dosya->dosya_ismi")?>">
                       <span class="glyphicon glyphicon-download-alt"></span></a>
@@ -128,7 +130,7 @@
           <div class="col-md-6">
             <p class="text-center">
               Copyright © 2018<br>
-              <a href="mailto:hashusfb@gmail.com">hashusfb@gmail.com</a>
+              <a href="mailto:hhuseyincihangir@gmail.com">hhuseyincihangir@gmail.com</a>
             </p>
           </div>
         </div>

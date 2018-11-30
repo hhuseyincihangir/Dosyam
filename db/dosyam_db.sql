@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 11 Kas 2018, 12:22:56
+-- Üretim Zamanı: 30 Kas 2018, 17:44:03
 -- Sunucu sürümü: 10.1.34-MariaDB
 -- PHP Sürümü: 7.2.7
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Veritabanı: `dosyayonetici`
+-- Veritabanı: `dosyam_db`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +33,8 @@ CREATE TABLE `dosyalar` (
   `dosya_ismi` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   `dosya_url` varchar(535) COLLATE utf8_unicode_ci NOT NULL,
   `dosya_boyut` int(11) NOT NULL,
-  `dosya_yukleyen` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `dosya_yukleyen` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `dosya_degisiklik_tarihi` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -81,13 +82,13 @@ ALTER TABLE `kullanicilar`
 -- Tablo için AUTO_INCREMENT değeri `dosyalar`
 --
 ALTER TABLE `dosyalar`
-  MODIFY `dosya_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `dosya_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `kullanicilar`
 --
 ALTER TABLE `kullanicilar`
-  MODIFY `kullanici_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `kullanici_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
