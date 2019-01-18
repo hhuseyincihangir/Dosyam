@@ -1,6 +1,26 @@
 # Dosyam
 Basit, çoklu kullanıcılı dosya barındırma sistemi.
 
+# Temel Özellikler
+
+* Sürükle bırak.
+* Çoklu dosya yükleme
+* Basit kullanıcı erişim izni
+
+# Kullanılan Teknolojiler
+
+  # Front-End:
+    * HTML
+    * JavaScript
+    * CSS
+    * Bootstrap 3.3.7
+    * DropzoneJS
+    * Font Awesome 4.7.0
+  # Back-End:
+    * PHP
+    * Codeigniter
+    * Mysql        
+
 # LİSANS HAKKINDA
 
 Copyright (C) 2018 Hasan Hüseyin CİHANGİR
