@@ -19,7 +19,7 @@ class Dosyalar extends CI_Controller
   }
   public function yukle()
   {
-    $config["allowed_types"]="jpeg|jpg|gif|png|pdf|docx|doc|xlsx|xlsm|xls|xml|csv|txt|xps|odt|ppt|pptx|potx|zip";
+    $config["allowed_types"]="jpeg|jpg|gif|png|pdf|docx|doc|xlsx|xlsm|xls|xml|csv|txt|xps|odt|ppt|pptx|potx|zip|rar";
     $config["upload_path"]="uploads/";
     $config["file_ext_tolower"]=true;
     $config["file_name"]=replace_tr($_FILES["file"]["name"]);

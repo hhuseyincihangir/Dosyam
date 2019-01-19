@@ -9,12 +9,5 @@
     {
       return $this->db->where($neyi)->get("kullanicilar")->row();      
     }
-    
-    
-    
   }
-  
-
-
-
 ?>

@@ -40,34 +40,34 @@
   <?php
     if($kullanici["kullanici_izin"]==2)
     {?>
-    <?php 
-		$error=$this->session->userdata("error"); 
-		if(isset($error)){
-		?>
-			<div class="alert alert-danger alert-dismissible">
-				<h6 class="text-center"><?=$error?></h6>
-			</div>
-		<?php }?>
-    <h3 class="text-center bg-primary">Dosya Yükle</h3>  
-    <h6 class="text-center bg-success">Desteklenen Formatlar</h6>
-    <div class="text-center">
       <?php 
-        $formatlar=array("jpeg","jpg","gif","png","pdf","docx","doc","xlsx","xlsm","xls","xml","csv","txt","xps","odt","ppt","pptx","potx","zip","rar");
-        for($i=0;$i<count($formatlar);$i++)
-        {?>
-          <span class="label label-warning"><?=$formatlar[$i]?></span>
+      $error=$this->session->userdata("error"); 
+      if(isset($error)){
+      ?>
+        <div class="alert alert-danger alert-dismissible">
+          <h6 class="text-center"><?=$error?></h6>
+        </div>
+      <?php }?>
+      <h3 class="text-center bg-primary">Dosya Yükle</h3>  
+      <h6 class="text-center bg-success">Desteklenen Formatlar</h6>
+      <div class="text-center">
         <?php 
-        }?>
-    </div><br>
-    <div class="text-center bg-danger">Maksimum dosya boyutu 8 MB</div><br>
-    <div class="row">
-      <div class="col-md-12">
-        <form action="<?=base_url("dosyalar/yukle")?>" class="dropzone" id="dropForm">
-        </form>
+          $formatlar=array("jpeg","jpg","gif","png","pdf","docx","doc","xlsx","xlsm","xls","xml","csv","txt","xps","odt","ppt","pptx","potx","zip","rar");
+          for($i=0;$i<count($formatlar);$i++)
+          {?>
+            <span class="label label-warning"><?=$formatlar[$i]?></span>
+          <?php
+          }?>
+      </div><br>
+      <div class="text-center bg-danger">Maksimum dosya boyutu 8 MB</div><br>
+      <div class="row">
+        <div class="col-md-12">
+          <form action="<?=base_url("dosyalar/yukle")?>" class="dropzone" id="dropForm">
+          </form>
+        </div>
       </div>
-    </div>
-    <hr>
-    <?php 
+      <hr>
+      <?php
     }
     ?>
     <div class="row">
@@ -89,9 +89,24 @@
                 <tbody>
                 <?php 
                 foreach ($dosyalar as $dosya) 
-                {?>
+                {
+                  $uzanti = uzantiIsminiAl($dosya->dosya_ismi);
+                  $uzantiLogoSinifi = uzantiLogosuFaSinifi($uzanti);
+                  ?>
                   <tr>
-                    <td ><img class="" src="<?=base_url("uploads/$dosya->dosya_ismi")?>"></td>
+                    <td>
+                      <?php
+                      if(resimUzantisi($uzanti))
+                      { ?>
+                        <img class="img img-responsive" src="<?=base_url("uploads/$dosya->dosya_ismi")?>">
+                      <?php
+                      }else
+                      {?>
+                        <span style="font-size:50px" class="<?=$uzantiLogoSinifi?>"></span>
+                      <?php
+                      }
+                      ?>
+                    </td>
                     <td ><?=round($dosya->dosya_boyut/1024,4)?> MB</td>
                     <td ><div><?=$dosya->dosya_ismi?></td>
                     <td ><?=$dosya->dosya_yukleyen?></td>
