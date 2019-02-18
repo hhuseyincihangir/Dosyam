@@ -20,6 +20,16 @@ Basit, çoklu kullanıcılı dosya barındırma sistemi.
     * PHP
     * Codeigniter
     * Mysql        
+# Ekran Görüntüleri
+
+  ## Giriş
+  
+  ![dosyam_giris](https://user-images.githubusercontent.com/15706050/52592936-be868f00-2e58-11e9-99e6-5c6e451f4fec.PNG)
+  
+  ## Dosya Yönetimi
+  
+  ![dosyam_yonetim](https://user-images.githubusercontent.com/15706050/52593037-04435780-2e59-11e9-88e2-62bb0da45def.PNG)
+
 
 # LİSANS HAKKINDA
 
