@@ -1,5 +1,5 @@
 Dropzone.options.dropForm = {
-  paramName: "file", // The name that will be used to transfer the file
+  paramName: "file",
   maxFilesize: 8, // MB
   maxFiles:8,
   acceptedFiles:".jpeg,.jpg,.gif,.png,.pdf,.docx,.doc,.xlsx,.xlsm,.xls,.xml,.csv,.txt,.xps,.odt,.ppt,.pptx,.potx,.zip,.rar",

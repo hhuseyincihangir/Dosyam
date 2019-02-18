@@ -11,8 +11,8 @@ class Giris extends CI_Controller
 	}	
 	public function index()
 	{
-    $kullanici=$this->session->userdata("kullanici");
-    if($kullanici)
+    $kullaniciSession=$this->session->userdata("kullanici");
+    if($kullaniciSession)
     {
       redirect(base_url("Dosyalar"));
     }
@@ -20,8 +20,8 @@ class Giris extends CI_Controller
 	}
 	public function girisYap()
 	{
-		$kullanici=$this->session->userdata("kullanici");
-    if($kullanici)
+		$kullaniciSession=$this->session->userdata("kullanici");
+    if($kullaniciSession)
     {
       redirect(base_url("Dosyalar"));
     }
@@ -44,22 +44,22 @@ class Giris extends CI_Controller
 			$kadi = $this->input->post("kadi");
 			$sifre = $this->input->post("sifre");
 			$beniHatirla = $this->input->post("beniHatirla");
-			$neyi=array(
+			$kullaniciVeri=array(
 				"kullanici_adi"=>$kadi,
-				"kullanici_sifre"=>$sifre
+				"kullanici_sifre"=>md5($sifre)
 			);
-			$kullanici=$this->ModelKullanicilar->selectRow($neyi);
-			if($kullanici)
+			$kullaniciSession=$this->ModelKullanicilar->selectRow($kullaniciVeri);
+			if($kullaniciSession)
 			{
-				$kullanici=array(
-					"kullanici_adi"  => $kullanici->kullanici_adi,
-					"kullanici_izin" => $kullanici->kullanici_izin,
-					"kullanici_adsoyad"=>$kullanici->kullanici_adsoyad
+				$kullaniciSession=array(
+					"kullanici_adi"  => $kullaniciSession->kullanici_adi,
+					"kullanici_izin" => $kullaniciSession->kullanici_izin,
+					"kullanici_adsoyad"=>$kullaniciSession->kullanici_adsoyad
 				);
-				$this->session->set_userdata("kullanici",$kullanici);
+				$this->session->set_userdata("kullanici",$kullaniciSession);
 				if($beniHatirla=="on")
 				{
-					set_cookie("cookieKullanici",json_encode($neyi),60*60*24);// 1 gün cookie süresi
+					set_cookie("cookieKullanici",json_encode($kullaniciVeri),60*60*24);// 1 gün cookie süresi
 				}
 				else
 				{
