@@ -1,25 +1,66 @@
 # Dosyam
+
 Basit, çoklu kullanıcılı dosya barındırma sistemi.
 
 # Temel Özellikler
 
-* Sürükle bırak.
-* Çoklu dosya yükleme
-* Basit kullanıcı erişim izni
+* Çoklu sürükle bırak.
+* Çoklu dosya yükleme.
+* İlkel kullanıcı erişim izinleri.
+
+# Gereksinimler
+
++ PHP 7
++ Mysql
+
+# Kurulum
+
+### 1. Dosyaların Kopyalanması
+Kaynak kodunu indirdikten sonra apache serverınızın **www/** veya **htdocs/** isimli klasörünün içine kopyalayınız.
+
+### 2. Veritabanın İçeri Aktarılması
+Mysql veritabanı yönetim sisteminiz (phpmyadmin, HeidiSQL, MySQL Workbench, vb.) ile **dosyam_db** ismiyle yeni bir veritabanı oluşturmalısınız (Veritabanı ismini değiştirmek istiyorsanız **application/config/database.php** dosyasındaki **$db['default']** değişkeninin **"database"** indisinin değerini de değiştirmeniz gerekli).
+
+### 3. Veritabanı Ayarları
+Veritabanı ayarları için **application/config/** klasörü içindeki **database.php** dosyasından, kendi veritabanı bilgilerinize göre aşağıdaki gibi doldurmalısınız.
+
+```php
+----------------------------------------------------------
+'hostname' => 'localhost', // Veritabanı sunucusu adresi
+'username' => 'root', // Veritabanı kullanıcı adı
+'password' => 'rootroot', // Veritabanı kullanıcı şifresi
+'database' => 'dosyam_db', // Veritabanı ismi
+----------------------------------------------------------
+```
+### 4. URL ayarları
+**Dosyam**'ın çalışması için **application/config/config.php** dosyasından,
+
+```php
+$config['base_url'] = 'https://localhost/Dosyam/';
+```
+değişkeninin metin değerini, proje dizinin yüklediğiniz **"host"** üzerindeki tam adresi ile değiştirmelisiniz.
+
+### 5. Giriş ve Mutlu Son :smile:
+Son olarak giriş ekranında,
+
+- **Kullanıcı Adı** : hashusci
+- **Şifre** : admin_hashusci
+
+değerlerini girebilirsiniz.
 
 # Kullanılan Teknolojiler
 
-  # Front-End:
-    * HTML
-    * JavaScript
-    * CSS
-    * Bootstrap 3.3.7
-    * DropzoneJS
-    * Font Awesome 4.7.0
-  # Back-End:
-    * PHP
-    * Codeigniter
-    * Mysql        
+## Back-End
++ PHP
++ Codeigniter
++ Mysql        
+## Front-End
++ HTML
++ JavaScript
++ CSS
++ Bootstrap 3.3.7
++ DropzoneJS
++ Font Awesome 4.7.0
 # Ekran Görüntüleri
 
   ## Giriş
