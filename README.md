@@ -57,6 +57,7 @@ değerlerini girebilirsiniz.
 ## Front-End
 + HTML
 + JavaScript
++ Jquery 1.10.2
 + CSS
 + Bootstrap 3.3.7
 + DropzoneJS
