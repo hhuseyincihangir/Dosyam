@@ -1,6 +1,6 @@
 # Dosyam
 
-Basit, çoklu kullanıcılı dosya barındırma sistemi.
+Basit, çok kullanıcılı dosya barındırma sistemi.
 
 # Temel Özellikler
 
@@ -52,8 +52,8 @@ değerlerini girebilirsiniz.
 
 ## Back-End
 + PHP
-+ Codeigniter
-+ Mysql        
++ Codeigniter 3.1.9
++ Mysql
 ## Front-End
 + HTML
 + JavaScript
