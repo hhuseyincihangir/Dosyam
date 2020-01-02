@@ -168,7 +168,7 @@ class CI_Form_validation {
 	{
 		// No reason to set rules if we have no POST data
 		// or a validation array has not been specified
-		if ($this->CI->input->method() !== 'post' && empty($this->validation_data))
+		if ($this->CI->Input->method() !== 'post' && empty($this->validation_data))
 		{
 			return $this;
 		}
@@ -1281,7 +1281,7 @@ class CI_Form_validation {
 	 */
 	public function valid_ip($ip, $which = '')
 	{
-		return $this->CI->input->valid_ip($ip, $which);
+		return $this->CI->Input->valid_ip($ip, $which);
 	}
 
 	// --------------------------------------------------------------------

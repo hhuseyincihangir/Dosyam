@@ -1,0 +1,15 @@
+{
+	"description": "Dosya Barındırma Sistemi",
+	"name": "hhuseyincihangir/Dosyam",
+	"type": "project",
+	"license": "GPL-3.0",
+	"support": {
+		"source": "https://github.com/hhuseyincihangir/Dosyam"
+	},
+	"require": {
+		"php": ">=5.3.7"
+	},
+	"suggest": {
+		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
+	}
+}

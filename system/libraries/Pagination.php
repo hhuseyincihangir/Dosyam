@@ -429,7 +429,7 @@ class CI_Pagination {
 		// Note: Has nothing to do with any other query string option.
 		if ($this->reuse_query_string === TRUE)
 		{
-			$get = $this->CI->input->get();
+			$get = $this->CI->Input->get();
 
 			// Unset the control, method, old-school routing options
 			unset($get['c'], $get['m'], $get[$this->query_string_segment]);
@@ -498,7 +498,7 @@ class CI_Pagination {
 		// Are we using query strings?
 		if ($this->page_query_string === TRUE)
 		{
-			$this->cur_page = $this->CI->input->get($this->query_string_segment);
+			$this->cur_page = $this->CI->Input->get($this->query_string_segment);
 		}
 		elseif (empty($this->cur_page))
 		{

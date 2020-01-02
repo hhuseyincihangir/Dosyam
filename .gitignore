@@ -1,0 +1,11 @@
+# Logs
+application/logs/*
+!application/index.html
+
+# Uploaded Files
+uploads/*
+!uploads/index.html
+
+# Composer
+vendor/*
+composer.lock

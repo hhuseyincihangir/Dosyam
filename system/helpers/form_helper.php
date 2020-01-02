@@ -715,7 +715,7 @@ if ( ! function_exists('set_value'))
 
 		$value = (isset($CI->form_validation) && is_object($CI->form_validation) && $CI->form_validation->has_rule($field))
 			? $CI->form_validation->set_value($field, $default)
-			: $CI->input->post($field, FALSE);
+			: $CI->Input->post($field, FALSE);
 
 		isset($value) OR $value = $default;
 		return ($html_escape) ? html_escape($value) : $value;
@@ -745,7 +745,7 @@ if ( ! function_exists('set_select'))
 		{
 			return $CI->form_validation->set_select($field, $value, $default);
 		}
-		elseif (($input = $CI->input->post($field, FALSE)) === NULL)
+		elseif (($input = $CI->Input->post($field, FALSE)) === NULL)
 		{
 			return ($default === TRUE) ? ' selected="selected"' : '';
 		}
@@ -795,7 +795,7 @@ if ( ! function_exists('set_checkbox'))
 
 		// Form inputs are always strings ...
 		$value = (string) $value;
-		$input = $CI->input->post($field, FALSE);
+		$input = $CI->Input->post($field, FALSE);
 
 		if (is_array($input))
 		{
@@ -812,7 +812,7 @@ if ( ! function_exists('set_checkbox'))
 		}
 
 		// Unchecked checkbox and radio inputs are not even submitted by browsers ...
-		if ($CI->input->method() === 'post')
+		if ($CI->Input->method() === 'post')
 		{
 			return ($input === $value) ? ' checked="checked"' : '';
 		}
@@ -847,7 +847,7 @@ if ( ! function_exists('set_radio'))
 
 		// Form inputs are always strings ...
 		$value = (string) $value;
-		$input = $CI->input->post($field, FALSE);
+		$input = $CI->Input->post($field, FALSE);
 
 		if (is_array($input))
 		{
@@ -864,7 +864,7 @@ if ( ! function_exists('set_radio'))
 		}
 
 		// Unchecked checkbox and radio inputs are not even submitted by browsers ...
-		if ($CI->input->method() === 'post')
+		if ($CI->Input->method() === 'post')
 		{
 			return ($input === $value) ? ' checked="checked"' : '';
 		}

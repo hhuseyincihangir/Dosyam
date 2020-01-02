@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Giris extends CI_Controller 
+class Giris extends CI_Controller
 {
 	public function __construct()
 	{
@@ -11,16 +11,22 @@ class Giris extends CI_Controller
 	}	
 	public function index()
 	{
-    $kullaniciSession=$this->session->userdata("kullanici");
+    $kullaniciSession = $this->session->userdata("kullanici");
     if($kullaniciSession)
     {
       redirect(base_url("Dosyalar"));
-    }
-		$this->load->view('giris');
+		}
+		$viewVeri = new stdClass();
+		$cookie = get_cookie("cookieKullanici");
+		if ($cookie){
+			$kullanici=json_decode($cookie);
+			$viewVeri->kullanici = $kullanici;
+		}
+		$this->load->view('giris', $viewVeri);
 	}
 	public function girisYap()
 	{
-		$kullaniciSession=$this->session->userdata("kullanici");
+		$kullaniciSession = $this->session->userdata("kullanici");
     if($kullaniciSession)
     {
       redirect(base_url("Dosyalar"));
@@ -41,12 +47,12 @@ class Giris extends CI_Controller
 		}
 		else
 		{
-			$kadi = $this->input->post("kadi");
-			$sifre = $this->input->post("sifre");
-			$beniHatirla = $this->input->post("beniHatirla");
+			$kadi = $this->Input->post("kadi");
+			$sifre = $this->Input->post("sifre");
+			$beniHatirla = $this->Input->post("beniHatirla");
 			$kullaniciVeri=array(
-				"kullanici_adi"=>$kadi,
-				"kullanici_sifre"=>md5($sifre)
+				"kullanici_adi" => $kadi,
+				"kullanici_sifre" => md5($sifre)
 			);
 			$kullaniciSession=$this->ModelKullanicilar->selectRow($kullaniciVeri);
 			if($kullaniciSession)

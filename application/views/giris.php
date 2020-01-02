@@ -1,10 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$this->load->helper("cookie");
-$cookie=get_cookie("cookieKullanici");
-if ($cookie){
-	$kullanici=json_decode($cookie);
-}
+
 ?><!DOCTYPE html>
 <html lang="tr">
 <head>
