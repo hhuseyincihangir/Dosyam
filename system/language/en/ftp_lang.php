@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2018, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,19 +29,23 @@
  * @package	CodeIgniter
  * @author	EllisLab Dev Team
  * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2018, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
+ * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @license	https://opensource.org/licenses/MIT	MIT License
  * @link	https://codeigniter.com
- * @since	Version 3.0.0
+ * @since	Version 1.0.0
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['migration_none_found'] = 'No migrations were found.';
-$lang['migration_not_found'] = 'No migration could be found with the version number: %s.';
-$lang['migration_sequence_gap'] = 'There is a gap in the migration sequence near version number: %s.';
-$lang['migration_multiple_version'] = 'There are multiple migrations with the same version number: %s.';
-$lang['migration_class_doesnt_exist'] = 'The migration class "%s" could not be found.';
-$lang['migration_missing_up_method'] = 'The migration class "%s" is missing an "up" method.';
-$lang['migration_missing_down_method'] = 'The migration class "%s" is missing a "down" method.';
-$lang['migration_invalid_filename'] = 'Migration "%s" has an invalid filename.';
+$lang['ftp_no_connection']		= 'Unable to locate a valid connection ID. Please make sure you are connected before performing any file routines.';
+$lang['ftp_unable_to_connect']		= 'Unable to connect to your FTP server using the supplied hostname.';
+$lang['ftp_unable_to_login']		= 'Unable to login to your FTP server. Please check your username and password.';
+$lang['ftp_unable_to_mkdir']		= 'Unable to create the directory you have specified.';
+$lang['ftp_unable_to_changedir']	= 'Unable to change directories.';
+$lang['ftp_unable_to_chmod']		= 'Unable to set file permissions. Please check your path.';
+$lang['ftp_unable_to_upload']		= 'Unable to upload the specified file. Please check your path.';
+$lang['ftp_unable_to_download']		= 'Unable to download the specified file. Please check your path.';
+$lang['ftp_no_source_file']		= 'Unable to locate the source file. Please check your path.';
+$lang['ftp_unable_to_rename']		= 'Unable to rename the file.';
+$lang['ftp_unable_to_delete']		= 'Unable to delete the file.';
+$lang['ftp_unable_to_move']		= 'Unable to move the file. Please make sure the destination directory exists.';

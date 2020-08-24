@@ -15,14 +15,16 @@ class Dosyalar extends CI_Controller
   public function index()
   {
     $veri["dosyalar"]=$this->ModelDosyalar->getAll();
+    // echo boyuBiriminiDonustur("MB", "KB", MAX_DOSYA_BOYUTU);
     $this->load->view("dosyalar",$veri);
   }
   public function yukle()
   {
-    $config["allowed_types"]="jpeg|jpg|gif|png|pdf|docx|doc|xlsx|xlsm|xls|xml|csv|txt|xps|odt|ppt|pptx|potx|zip|rar";
-    $config["upload_path"]="uploads/";
-    $config["file_ext_tolower"]=true;
-    $config["file_name"]=replace_tr($_FILES["file"]["name"]);
+    $config["allowed_types"] = DOSYA_UZANTILARI;
+    $config["upload_path"] = "uploads/";
+    $config['max_size'] = boyuBiriminiDonustur("MB", "KB", MAX_DOSYA_BOYUTU);
+    $config["file_ext_tolower"] = true;
+    $config["file_name"] = replace_tr($_FILES["file"]["name"]);
     $this->load->library("upload",$config);
     if($this->upload->do_upload("file"))
     {
@@ -33,19 +35,17 @@ class Dosyalar extends CI_Controller
         "dosya_yukleyen"=>$this->kullanici["kullanici_adi"],
         "dosya_degisiklik_tarihi"=>date("Y-m-d H:i:s")
       );
-      if ($this->ModelDosyalar->insert($veri))
+      $islem = $this->ModelDosyalar->insert($veri);
+      if ($islem)
       {
-        echo "Başarılı";
-      }
-      else
-      {
-        echo "Başarısız";
+        return true;
       }
     }
     else
     {
-      echo "Dosya uzantısı istenmeyen bir uzantı.";
+      return $this->upload->display_errors();
     }
+    return false;
   }
   public function indir($dosya_ismi)
   {

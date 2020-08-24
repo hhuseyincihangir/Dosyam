@@ -66,4 +66,34 @@
       return false;
     }
   }
+  function dropZoneJsUzantilariGetir()
+  {
+    $kabulEdilenUzantilar = explode("|", DOSYA_UZANTILARI);
+    foreach ($kabulEdilenUzantilar as $key => $kabulEdilenUzanti) {
+      $kabulEdilenUzantilar[$key] = ".".$kabulEdilenUzanti;
+    }
+    $kabulEdilenUzantilar = implode(",", $kabulEdilenUzantilar);
+
+    return $kabulEdilenUzantilar;
+  }
+  function boyuBiriminiDonustur($tip, $donusturulecekTip, $boyut) 
+  {
+    if($tip == "KB")
+    {
+      if ($donusturulecekTip == "MB"){
+        return round($boyut / 1024 , 4);	
+      } elseif ($donusturulecekTip == "GB"){
+        return round($boyut / 1024 / 1024, 4);	
+      }
+    }
+    else if($tip == "MB")
+    {
+      if ($donusturulecekTip == "KB"){
+        return round($boyut * 1024 , 4);	
+      } elseif ($donusturulecekTip == "GB"){
+        return round($boyut / 1024, 4);	
+      }
+    }
+  }
+
 ?>

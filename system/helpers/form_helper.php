@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2018, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,8 +29,8 @@
  * @package	CodeIgniter
  * @author	EllisLab Dev Team
  * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2018, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
+ * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @license	https://opensource.org/licenses/MIT	MIT License
  * @link	https://codeigniter.com
  * @since	Version 1.0.0
  * @filesource
@@ -715,7 +715,7 @@ if ( ! function_exists('set_value'))
 
 		$value = (isset($CI->form_validation) && is_object($CI->form_validation) && $CI->form_validation->has_rule($field))
 			? $CI->form_validation->set_value($field, $default)
-			: $CI->Input->post($field, FALSE);
+			: $CI->input->post($field, FALSE);
 
 		isset($value) OR $value = $default;
 		return ($html_escape) ? html_escape($value) : $value;
@@ -745,7 +745,7 @@ if ( ! function_exists('set_select'))
 		{
 			return $CI->form_validation->set_select($field, $value, $default);
 		}
-		elseif (($input = $CI->Input->post($field, FALSE)) === NULL)
+		elseif (($input = $CI->input->post($field, FALSE)) === NULL)
 		{
 			return ($default === TRUE) ? ' selected="selected"' : '';
 		}
@@ -795,7 +795,7 @@ if ( ! function_exists('set_checkbox'))
 
 		// Form inputs are always strings ...
 		$value = (string) $value;
-		$input = $CI->Input->post($field, FALSE);
+		$input = $CI->input->post($field, FALSE);
 
 		if (is_array($input))
 		{
@@ -812,7 +812,7 @@ if ( ! function_exists('set_checkbox'))
 		}
 
 		// Unchecked checkbox and radio inputs are not even submitted by browsers ...
-		if ($CI->Input->method() === 'post')
+		if ($CI->input->method() === 'post')
 		{
 			return ($input === $value) ? ' checked="checked"' : '';
 		}
@@ -847,7 +847,7 @@ if ( ! function_exists('set_radio'))
 
 		// Form inputs are always strings ...
 		$value = (string) $value;
-		$input = $CI->Input->post($field, FALSE);
+		$input = $CI->input->post($field, FALSE);
 
 		if (is_array($input))
 		{
@@ -864,7 +864,7 @@ if ( ! function_exists('set_radio'))
 		}
 
 		// Unchecked checkbox and radio inputs are not even submitted by browsers ...
-		if ($CI->Input->method() === 'post')
+		if ($CI->input->method() === 'post')
 		{
 			return ($input === $value) ? ' checked="checked"' : '';
 		}

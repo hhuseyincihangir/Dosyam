@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+defined('DOSYA_YUKLEME_KLASORU') OR define('DOSYA_YUKLEME_KLASORU', "uploads");
+defined('MAX_DOSYA_BOYUTU') OR define('MAX_DOSYA_BOYUTU', "128"); // MB
+defined('DOSYA_UZANTILARI') OR define('DOSYA_UZANTILARI', "jpeg|jpg|gif|png|pdf|docx|doc|xlsx|xlsm|xls|xml|csv|txt|xps|odt|ppt|pptx|potx|zip|rar|apk");
+
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

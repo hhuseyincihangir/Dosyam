@@ -52,17 +52,17 @@
       <h6 class="text-center bg-success">Desteklenen Formatlar</h6>
       <div class="text-center">
         <?php 
-          $formatlar=array("jpeg","jpg","gif","png","pdf","docx","doc","xlsx","xlsm","xls","xml","csv","txt","xps","odt","ppt","pptx","potx","zip","rar");
+          $formatlar = explode("|", DOSYA_UZANTILARI);
           for($i=0;$i<count($formatlar);$i++)
           {?>
             <span class="label label-warning"><?=$formatlar[$i]?></span>
           <?php
           }?>
       </div><br>
-      <div class="text-center bg-danger">Maksimum dosya boyutu 8 MB</div><br>
+      <div class="text-center bg-danger">Maksimum dosya boyutu <?=MAX_DOSYA_BOYUTU?> MB</div><br>
       <div class="row">
         <div class="col-md-12">
-          <form action="<?=base_url("dosyalar/yukle")?>" class="dropzone" id="dropForm">
+          <form action="<?=base_url("Dosyalar/yukle")?>" method="get" class="dropzone" id="dropForm">
           </form>
         </div>
       </div>
@@ -154,11 +154,5 @@
   <?php 
 	  $this->load->view("includes/scripts.php");
   ?>
-  <script>
-    $.get("Dosyalar",function(data){
-      var veri=JSON.parse(data);
-      console.log(veri);
-    })
-  </script>
 </body>
 </html>

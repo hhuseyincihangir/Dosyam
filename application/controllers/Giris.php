@@ -47,9 +47,9 @@ class Giris extends CI_Controller
 		}
 		else
 		{
-			$kadi = $this->Input->post("kadi");
-			$sifre = $this->Input->post("sifre");
-			$beniHatirla = $this->Input->post("beniHatirla");
+			$kadi = $this->input->post("kadi", true);
+			$sifre = $this->input->post("sifre", true);
+			$beniHatirla = $this->input->post("beniHatirla", true);
 			$kullaniciVeri=array(
 				"kullanici_adi" => $kadi,
 				"kullanici_sifre" => md5($sifre)
